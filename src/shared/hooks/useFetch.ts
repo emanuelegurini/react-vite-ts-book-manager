@@ -1,24 +1,23 @@
-import { useState, useEffect, useContext, useCallback } from "react";
-import { ToastContext } from "@/context/index";
-import { IBook, IMessage } from "@/model";
-import { uuidv4 } from "@/utils";
+import { useState, useEffect, useContext, useCallback } from 'react';
+import { IBook, IMessage } from '@/model';
+import { uuidv4 } from '@/utils';
+import { ToastContext } from '@/context/index';
 
-export const useFecth = (urlToFetch: string, setMessages: any) => {
-  //const { messages, setMessages } = useContext(ToastContext);
+export const useFecth = (urlToFetch: string) => {
   const [data, setData] = useState<Array<IBook>>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const fetchData = async () => {
-    setIsLoading(true);
+  const { setMessages } = useContext(ToastContext);
 
+  const fetchData = useCallback(async () => {
+    setIsLoading(true);
     try {
       const response = await fetch(urlToFetch).then((res) => res.json());
       setData(response);
-
       setMessages((prev: Array<IMessage>) => [
         ...prev,
-        { message: "Fetch avvenuta con successo!", id: uuidv4() },
+        { message: 'Fetch avvenuta con successo!', id: uuidv4() },
       ]);
     } catch (error) {
       setError(`Erros: ${error}`);
@@ -29,7 +28,7 @@ export const useFecth = (urlToFetch: string, setMessages: any) => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [urlToFetch]);
 
   useEffect(() => {
     fetchData();

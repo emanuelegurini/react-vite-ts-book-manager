@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { IToast } from "@/model";
+import { useEffect } from 'react';
+import { IToast } from '@/model';
 
 const Toast: React.FC<IToast> = ({
   message,

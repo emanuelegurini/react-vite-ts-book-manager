@@ -1,13 +1,13 @@
-import { createPortal } from "react-dom";
-import { Toast } from "@/components";
-import { useContext } from "react";
-import { ToastContext } from "@/shared/context/toast";
-import { IMessage } from "@/model";
+import { createPortal } from 'react-dom';
+import { Toast } from '@/components';
+import { useContext } from 'react';
+import { ToastContext } from '@/shared/context/toast';
+import { IMessage } from '@/model';
 
 const ToastManager: React.FC<{}> = (): React.ReactElement => {
   const { messages, setMessages } = useContext(ToastContext);
 
-  const removeToast = (index: string) => {
+  const removeToast = (index: string): void => {
     setMessages((prev: Array<IMessage>) =>
       prev.filter((_: IMessage) => _.id != index)
     );
