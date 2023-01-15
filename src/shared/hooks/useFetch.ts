@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { useContext } from "react";
+import { useState, useEffect, useContext, useCallback } from "react";
 import { ToastContext } from "@/context/index";
 import { IBook, IMessage } from "@/model";
 import { uuidv4 } from "@/utils";
@@ -12,17 +11,21 @@ export const useFecth = (urlToFetch: string) => {
 
   const fetchData = async () => {
     setIsLoading(true);
-    setMessages((prev: Array<IMessage>) => [
-      ...prev,
-      { message: "Fetch avvenuta con successo!", id: uuidv4() },
-    ]);
 
     try {
       const response = await fetch(urlToFetch).then((res) => res.json());
       setData(response);
+
+      setMessages((prev: Array<IMessage>) => [
+        ...prev,
+        { message: "Fetch avvenuta con successo!", id: uuidv4() },
+      ]);
     } catch (error) {
       setError(`Erros: ${error}`);
-      //setMessages({ message: `Erros: ${error}`, id: uuidv4() });
+      setMessages((prev: Array<IMessage>) => [
+        ...prev,
+        { message: `Erros: ${error}`, id: uuidv4() },
+      ]);
     } finally {
       setIsLoading(false);
     }
