@@ -1,0 +1,22 @@
+{
+	"books": [
+		{
+			"id": 1,
+			"title": "NodeJS Design Patterns",
+			"author": "Luciano Mammino, Mario Casciaro",
+			"price": "45,00"
+		},
+		{
+			"id": 2,
+			"title": "Real World NextJS",
+			"author": "Michele Riva",
+			"price": "30,00"
+		},
+		{
+			"id": 3,
+			"title": "Eloquent JavaScript",
+			"author": "Marijin Haverbeke",
+			"price": "35,00"
+		}
+	]
+}
