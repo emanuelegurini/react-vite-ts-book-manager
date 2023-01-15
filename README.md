@@ -20,6 +20,9 @@ npm run dev
 
 npm run server # Fa partire il server
 
-
-
 ```
+
+## TODO
+
+1. Creare un provider per il context
+2. disaccoppiare il context

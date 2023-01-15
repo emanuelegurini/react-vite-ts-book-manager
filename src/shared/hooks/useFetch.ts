@@ -3,8 +3,8 @@ import { ToastContext } from "@/context/index";
 import { IBook, IMessage } from "@/model";
 import { uuidv4 } from "@/utils";
 
-export const useFecth = (urlToFetch: string) => {
-  const { messages, setMessages } = useContext(ToastContext);
+export const useFecth = (urlToFetch: string, setMessages: any) => {
+  //const { messages, setMessages } = useContext(ToastContext);
   const [data, setData] = useState<Array<IBook>>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
