@@ -1,6 +1,12 @@
-import { createContext } from "react";
+import { IMessage } from '@/model';
+import { createContext } from 'react';
 
-export const ToastContext = createContext<any>({
+interface IToastContext {
+  messages: IMessage[];
+  setMessages: React.Dispatch<React.SetStateAction<IToastContext['messages']>>;
+}
+
+export const ToastContext = createContext<IToastContext>({
   messages: [],
   setMessages: () => {},
 });

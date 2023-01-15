@@ -1,10 +1,8 @@
-import { useState, useEffect, useContext, useCallback } from "react";
-import { ToastContext } from "@/context/index";
-import { IBook, IMessage } from "@/model";
-import { uuidv4 } from "@/utils";
+import { useState, useEffect, useContext, useCallback } from 'react';
+import { IBook, IMessage } from '@/model';
+import { uuidv4 } from '@/utils';
 
 export const useFecth = (urlToFetch: string, setMessages: any) => {
-  //const { messages, setMessages } = useContext(ToastContext);
   const [data, setData] = useState<Array<IBook>>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -18,7 +16,7 @@ export const useFecth = (urlToFetch: string, setMessages: any) => {
 
       setMessages((prev: Array<IMessage>) => [
         ...prev,
-        { message: "Fetch avvenuta con successo!", id: uuidv4() },
+        { message: 'Fetch avvenuta con successo!', id: uuidv4() },
       ]);
     } catch (error) {
       setError(`Erros: ${error}`);
