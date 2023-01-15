@@ -1,15 +1,9 @@
 import { IBook } from '@/model';
-import { ToastContext } from '@/shared/context';
 import { useFecth } from '@/shared/hooks/useFetch';
 import { ENDPOINTS } from '@/utils';
-import { useContext } from 'react';
 
 export const BookList = () => {
-  const { setMessages } = useContext(ToastContext);
-  const { data, isLoading, error, refetch } = useFecth(
-    ENDPOINTS.BOOKS,
-    setMessages
-  );
+  const { data, isLoading, error, refetch } = useFecth(ENDPOINTS.BOOKS);
 
   if (isLoading)
     return (
