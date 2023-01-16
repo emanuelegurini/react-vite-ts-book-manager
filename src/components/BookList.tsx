@@ -1,6 +1,6 @@
-import { IBook } from '@/model';
-import { useFecth } from '@/shared/hooks/useFetch';
-import { ENDPOINTS } from '@/utils';
+import { IBook } from "@/model";
+import { useFecth } from "@/shared/hooks/useFetch";
+import { ENDPOINTS } from "@/utils";
 
 export const BookList = () => {
   const { data, isLoading, error, refetch } = useFecth(ENDPOINTS.BOOKS);
@@ -33,6 +33,9 @@ export const BookList = () => {
 
   return (
     <div>
+      <button className="bg-gray-300 m-2 p-2 rounded" onClick={() => refetch()}>
+        Fetch
+      </button>
       <ul>
         {data?.map((book: IBook) => {
           const { title, id, author } = book;
