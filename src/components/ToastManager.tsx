@@ -1,16 +1,14 @@
-import { createPortal } from 'react-dom';
-import { Toast } from '@/components';
-import { useContext } from 'react';
-import { ToastContext } from '@/shared/context/toast';
-import { IMessage } from '@/model';
+import { createPortal } from "react-dom";
+import { Toast } from "@/components";
+import { IMessage } from "@/model";
+import { useToast, useToastDispatch } from "@/components/ToastContext";
 
 const ToastManager: React.FC<{}> = (): React.ReactElement => {
-  const { messages, setMessages } = useContext(ToastContext);
+  const toasts = useToast();
+  const dispatch = useToastDispatch();
 
   const removeToast = (index: string): void => {
-    setMessages((prev: Array<IMessage>) =>
-      prev.filter((_: IMessage) => _.id != index)
-    );
+    dispatch({ type: "remove", payload: index });
   };
 
   return (
@@ -18,7 +16,7 @@ const ToastManager: React.FC<{}> = (): React.ReactElement => {
       {createPortal(
         <>
           <div className="absolute bottom-0 right-0 overflow-y-scroll">
-            {messages.map((message: IMessage, index: number) => {
+            {toasts?.map((message: IMessage, index: number) => {
               const { message: msg, id } = message;
               return (
                 <Toast

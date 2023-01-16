@@ -1,6 +1,6 @@
-import { ToastManager } from '@/components';
-import { BookList } from './components/BookList';
-import { ToastProvider } from './shared/providers/ToastProvider';
+import { ToastManager } from "@/components";
+import { BookList } from "./components/BookList";
+import { ToastProvider } from "@/components/ToastContext";
 
 function App() {
   return (
