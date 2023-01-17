@@ -1,9 +1,9 @@
 import { IBook } from "@/model";
-import { useFecth } from "@/shared/hooks/useFetch";
+import { useBooks } from "../hook/useBooks";
 import { ENDPOINTS } from "@/utils";
 
 export const BookList = () => {
-  const { data, isLoading, error, refetch } = useFecth(ENDPOINTS.BOOKS);
+  const { data, isLoading, error, refetch } = useBooks(ENDPOINTS.BOOKS);
 
   if (isLoading)
     return (
