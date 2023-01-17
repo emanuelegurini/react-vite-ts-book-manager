@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import { IBook, IMessage } from '@/model';
-import { useToastDispatch } from '@/components/ToastContext';
+import { IBook } from '@/model';
+import { useToastDispatch } from '@/components/toastManager/context/toastContext';
 import { Api } from '@/utils';
 
 export const useBooks = (urlToFetch: string) => {

@@ -1,4 +1,3 @@
-import Toast from "./Toast";
-import ToastManager from "./ToastManager";
+import Toast from './Toast';
 
-export { Toast, ToastManager };
+export { Toast };

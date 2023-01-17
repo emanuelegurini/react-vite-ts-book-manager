@@ -1,14 +1,14 @@
-import { createPortal } from "react-dom";
-import { Toast } from "@/components";
-import { IMessage } from "@/model";
-import { useToast, useToastDispatch } from "@/components/ToastContext";
+import { createPortal } from 'react-dom';
+import { Toast } from '@/components';
+import { IMessage } from '@/model';
+import { useToast, useToastDispatch } from './context/toastContext';
 
-const ToastManager: React.FC<{}> = (): React.ReactElement => {
+export const ToastManager: React.FC<{}> = (): React.ReactElement => {
   const toasts = useToast();
   const dispatch = useToastDispatch();
 
   const removeToast = (index: string): void => {
-    dispatch({ type: "remove", payload: index });
+    dispatch({ type: 'remove', payload: index });
   };
 
   return (
